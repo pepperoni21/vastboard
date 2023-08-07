@@ -7,7 +7,7 @@ use valence::scoreboard::*;
 pub fn create_scoreboard(
     mut commands: Commands,
     server: Res<Server>,
-    mut clients: Query<(&mut VastboardData, &VastboardTitle, &VastboardScores, &UniqueId, &mut VisibleEntityLayers), Added<VastboardData>>
+    mut clients: Query<(&mut VastboardData, &VastboardTitle, &VastboardLines, &UniqueId, &mut VisibleEntityLayers), Added<VastboardData>>
 ) {
     for (mut data, title, scores, uuid, mut visible_entity_layers) in clients.iter_mut() {
         let scoreboard_layer = commands.spawn(EntityLayer::new(&server)).id();
@@ -43,7 +43,7 @@ pub fn update_title(
 }
 
 pub fn update_scores(
-    mut clients: Query<(&mut VastboardScores, &VastboardData), Changed<VastboardScores>>,
+    mut clients: Query<(&mut VastboardLines, &VastboardData), Changed<VastboardLines>>,
     mut objectives_scores: Query<&mut ObjectiveScores>
 ) {
     for (scores, data) in clients.iter_mut() {
@@ -70,7 +70,7 @@ pub fn remove_despawned_objectives_vastboards(
                 if let Some(objective_entity_id) = vastboard.objective {
                     if objective_entity_id == objective_ent {
                         let mut entity_commands = commands.entity(vastboard_ent);
-                        entity_commands.remove::<(VastboardData, VastboardTitle, VastboardScores)>();
+                        entity_commands.remove::<(VastboardData, VastboardTitle, VastboardLines)>();
                     }
                 }
             }
@@ -81,7 +81,7 @@ pub fn remove_despawned_objectives_vastboards(
 pub fn remove_vastboards(
     mut commands: Commands,
     mut removed_titles: RemovedComponents<VastboardTitle>,
-    mut removed_scores: RemovedComponents<VastboardScores>,
+    mut removed_scores: RemovedComponents<VastboardLines>,
     vastboards: Query<(Entity, &VastboardData)>
 ) {
     let mut treated_entities = Vec::new();
@@ -98,12 +98,10 @@ pub fn remove_vastboards(
         };
 
         let mut entity_commands = commands.entity(client_ent);
-        entity_commands.remove::<(VastboardData, VastboardScores)>();
+        entity_commands.remove::<(VastboardData, VastboardLines)>();
 
         let mut objective_commands = commands.entity(objective_ent);
         objective_commands.insert(Despawned);
-
-        println!("Removed vastboard for client");
 
         treated_entities.push(client_ent);
     }

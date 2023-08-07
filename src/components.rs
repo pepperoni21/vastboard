@@ -4,7 +4,7 @@ use valence::{prelude::*, scoreboard::ObjectiveScores};
 pub struct VastboardBundle {
     pub data: VastboardData,
     pub title: VastboardTitle,
-    pub scores: VastboardScores
+    pub scores: VastboardLines
 }
 
 impl VastboardBundle {
@@ -16,7 +16,7 @@ impl VastboardBundle {
                 client
             },
             title: VastboardTitle(title),
-            scores: VastboardScores(lines)
+            scores: VastboardLines(lines)
         }
     }
 
@@ -38,9 +38,9 @@ impl VastboardTitle {
 }
 
 #[derive(Component)]
-pub struct VastboardScores(pub Vec<String>);
+pub struct VastboardLines(pub Vec<String>);
 
-impl VastboardScores {
+impl VastboardLines {
     pub fn update(&mut self, scores: Vec<String>) {
         self.0 = scores;
     }

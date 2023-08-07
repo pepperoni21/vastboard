@@ -32,5 +32,5 @@ pub fn create_vastboard(commands: &mut Commands, client: Entity, title: Text, li
 
 pub fn remove_vastboard(commands: &mut Commands, client: Entity) {
     let mut entity_commands = commands.get_entity(client).unwrap();
-    entity_commands.remove::<(VastboardTitle, VastboardScores)>();
+    entity_commands.remove::<(VastboardTitle, VastboardLines)>();
 }
