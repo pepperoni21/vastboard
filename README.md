@@ -1,5 +1,5 @@
 # Vastboard
-### A simple Valence plugin for making scoreboards easier.
+### A simple Valence plugin for making scoreboards easier to manage.
 
 # Installation
 ### Add Vastboard to your project
