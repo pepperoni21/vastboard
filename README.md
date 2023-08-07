@@ -70,3 +70,6 @@ remove_vastboard(
     client_entity // Client bevy entity
 );
 ```
+
+# License
+Copyright © 2023 [pepperoni21](https://github.com/pepperoni21) - [MIT](https://github.com/sammwyy/Lure/blob/main/LICENSE) licensed
