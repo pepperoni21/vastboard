@@ -1,5 +1,6 @@
 # Vastboard
 ### A simple Valence plugin for making scoreboards easier to manage.
+Its usage has been inspired by the [FastBoard](https://github.com/MrMicky-FR/FastBoard) library for Bukkit.
 
 # Installation
 ### Add Vastboard to your project
