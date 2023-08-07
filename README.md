@@ -35,7 +35,7 @@ create_vastboard(
 );
 ```
 ### Update the title/lines
-You can update the title by updating the `VastboardTitle` component of the client entity.
+You can update the title by updating the `VastboardTitle` component of the client entity with the new title and same for the lines with the `VastboardLines` component.
 
 In this example, we update the title to "Sneaking" when the player starts sneaking, and "Not sneaking" when the player stops sneaking:
 ```rust
