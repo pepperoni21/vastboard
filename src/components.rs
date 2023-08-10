@@ -22,7 +22,7 @@ impl VastboardBundle {
 
 }
 
-#[derive(Component)]
+#[derive(Component, Debug)]
 pub struct VastboardData {
     pub objective: Option<Entity>,
     pub client: Entity
