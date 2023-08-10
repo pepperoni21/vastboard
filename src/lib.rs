@@ -7,6 +7,9 @@ use systems::*;
 use valence::registry::Commands;
 use valence::prelude::*;
 
+#[cfg(test)]
+mod tests;
+
 pub struct VastboardPlugin;
 
 impl Plugin for VastboardPlugin {
